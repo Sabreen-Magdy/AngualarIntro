@@ -6,8 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  text:string="Border hero with cropped image and shadows";
-   imgUrl:string="https://getbootstrap.com/docs/5.3/examples/heroes/bootstrap-docs.png";
-   myColor:string="#FF00FF";
+  nameProject:string="CaptureMe";
+  desc:string=`This is a wider card with supporting text below as a natural lead-in to
+  additional content. This content is a little bit longer.`;
+   imgUrl:string="assets/Images/home.jpg";
+   myColor:string="#2E8B57";
    applayViolet:boolean=true;
 }
