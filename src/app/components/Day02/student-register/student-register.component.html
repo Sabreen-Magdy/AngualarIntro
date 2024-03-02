@@ -1,0 +1,103 @@
+<form
+  class="row"
+  (submit)="sendValues($event)"
+  style="width: 1000px; margin: auto"
+>
+  <div class="col-md-12">
+    <label for="validationServer01" class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="validationServer01"
+      [(ngModel)]="student.name"
+      name="name"
+      [ngClass]="{
+        'is-valid': nameValidation,
+        'is-invalid': !nameValidation
+      }"
+      required
+    />
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">Name must be at least 5 letters.</div>
+  </div>
+  <div class="col-md-12">
+    <label for="validationServer03" class="form-label">Age</label>
+    <input
+      type="number"
+      class="form-control"
+      id="validationServer03"
+      aria-describedby="validationServer03Feedback"
+      [(ngModel)]="student.age"
+      name="age"
+      [ngClass]="{
+        'is-valid': ageValidation,
+        'is-invalid': !ageValidation
+      }"
+      required
+    />
+    <div id="validationServer03Feedback" class="valid-feedback">good work!</div>
+    <div id="validationServer03Feedback" class="invalid-feedback">
+      Age must be between 10 and 17.
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="validationServer03" class="form-label">Address</label>
+    <select
+      class="form-select"
+      aria-label="Default select example"
+      [(ngModel)]="student.address"
+      name="address"
+      required
+    >
+      <option address>Cairo</option>
+      <option>Alex</option>
+      <option>Giza</option>
+    </select>
+  </div>
+  <div class="col-md-12">
+    <label for="validationServer03" class="form-label">Phone Number</label>
+    <input
+      type="text"
+      class="form-control is-invalid"
+      id="validationServer03"
+      aria-describedby="validationServer03Feedback"
+      [(ngModel)]="student.phoneNumber"
+      name="phoneNumber"
+      [ngClass]="{
+        'is-valid': phoneValidation,
+        'is-invalid': !phoneValidation
+      }"
+      required
+    />
+    <div id="validationServer03Feedback" class="valid-feedback">good work!</div>
+    <div id="validationServer03Feedback" class="invalid-feedback">
+      Please provide a valid phone number starting with 011, 010, or 012 and 11
+      digits long.
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </div>
+</form>
+
+<table
+  *ngIf="registeredStudents.length > 0"
+  class="table table-dark table-hover"
+>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Age</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let std of registeredStudents">
+      <th scope="row">{{ std.name }}</th>
+      <td>{{ std.age }}</td>
+      <td>{{ std.address }}</td>
+      <td>{{ std.phoneNumber }}</td>
+    </tr>
+  </tbody>
+</table>
