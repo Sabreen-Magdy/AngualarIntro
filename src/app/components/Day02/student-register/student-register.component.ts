@@ -38,4 +38,8 @@ export class StudentRegisterComponent {
       const phoneRegex = /^(011|010|012)\d{8}$/;
       return phoneRegex.test(this.student.phoneNumber);
     }
+    Remove(i: number) {
+      this.registeredStudents.splice(i, 1);
+  }
+
 }

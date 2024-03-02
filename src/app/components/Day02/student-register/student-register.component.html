@@ -90,14 +90,20 @@
       <th scope="col">Age</th>
       <th scope="col">Address</th>
       <th scope="col">Phone Number</th>
+      <th scope="col">Delete</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let std of registeredStudents">
+    <tr *ngFor="let std of registeredStudents; let i = index">
       <th scope="row">{{ std.name }}</th>
       <td>{{ std.age }}</td>
       <td>{{ std.address }}</td>
       <td>{{ std.phoneNumber }}</td>
+      <td>
+        <button (click)="Remove(i)" type="button" class="btn btn-danger">
+          Delete
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
