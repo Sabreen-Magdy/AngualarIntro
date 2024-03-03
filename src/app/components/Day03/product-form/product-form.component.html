@@ -1,0 +1,157 @@
+<form
+  [formGroup]="productForm"
+  class="row"
+  (submit)="sendValues($event)"
+  style="width: 1000px; margin: auto"
+>
+  <div class="col-md-12">
+    <label for="validationServer01" class="form-label">Product Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="validationServer01"
+      formControlName="productName"
+      name="name"
+      [ngClass]="{
+        'is-valid': productNameControl?.valid,
+        'is-invalid': productNameControl?.errors && productNameControl?.touched
+      }"
+    />
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">
+      <ng-container *ngIf="productNameControl?.hasError('required')"
+        >product name is required.</ng-container
+      >
+      <ng-container *ngIf="productNameControl?.hasError('minLength')"
+        >product name must be at least 5 letters.</ng-container
+      >
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="validationServer01" class="form-label">Product Category</label>
+    <input
+      type="text"
+      class="form-control"
+      id="validationServer01"
+      formControlName="productCategory"
+      name="productCategory"
+      [ngClass]="{
+        'is-valid': productCategoryControl?.valid,
+        'is-invalid':
+          productCategoryControl?.errors && productCategoryControl?.touched
+      }"
+    />
+    <div class="valid-feedback">Looks good!</div>
+    <div class="invalid-feedback">
+      <ng-container *ngIf="productCategoryControl?.hasError('required')"
+        >product category is required.</ng-container
+      >
+      <ng-container *ngIf="productCategoryControl?.hasError('minLength')"
+        >product category must be at least 4 letters.</ng-container
+      >
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="validationServer03" class="form-label">Product Price</label>
+    <input
+      type="number"
+      class="form-control"
+      id="validationServer03"
+      aria-describedby="validationServer03Feedback"
+      formControlName="productPrice"
+      name="productPrice"
+      [ngClass]="{
+        'is-valid': productPriceControl?.valid,
+        'is-invalid':
+          productPriceControl?.errors && productPriceControl?.touched
+      }"
+    />
+    <div id="validationServer03Feedback" class="valid-feedback">good work!</div>
+    <div class="invalid-feedback">
+      <ng-container *ngIf="productPriceControl?.hasError('required')"
+        >product price is required.</ng-container
+      >
+      <ng-container *ngIf="productPriceControl?.hasError('min')"
+        >product price must be at least 100 $.</ng-container
+      >
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="validationServer03" class="form-label">Product Quantity</label>
+    <input
+      type="number"
+      class="form-control"
+      id="validationServer03"
+      aria-describedby="validationServer03Feedback"
+      formControlName="productQuantity"
+      name="productQuantity"
+      [ngClass]="{
+        'is-valid': productQuantityControl?.valid,
+        'is-invalid':
+          productQuantityControl?.errors && productQuantityControl?.touched
+      }"
+    />
+    <div id="validationServer03Feedback" class="valid-feedback">good work!</div>
+    <div class="invalid-feedback">
+      <ng-container *ngIf="productQuantityControl?.hasError('required')"
+        >product quantity is required.</ng-container
+      >
+      <ng-container *ngIf="productQuantityControl?.hasError('min')"
+        >product quantity must be at least 5.</ng-container
+      >
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="validationServer03" class="form-label">Product Discount</label>
+    <input
+      type="number"
+      class="form-control"
+      id="validationServer03"
+      aria-describedby="validationServer03Feedback"
+      formControlName="productDiscount"
+      name="productDiscount"
+      [ngClass]="{
+        'is-valid': productDiscountControl?.valid,
+        'is-invalid':
+          productDiscountControl?.errors && productDiscountControl?.touched
+      }"
+    />
+    <div id="validationServer03Feedback" class="valid-feedback">good work!</div>
+    <div class="invalid-feedback">
+      <ng-container *ngIf="productDiscountControl?.hasError('required')"
+        >product discount is required.</ng-container
+      >
+      <ng-container *ngIf="productDiscountControl?.hasError('min')"
+        >product discount must be at least 5.</ng-container
+      >
+      <ng-container *ngIf="productDiscountControl?.hasError('max')"
+        >product quantity must be at most 25.</ng-container
+      >
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-check mt-2">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="validationServer04"
+        aria-describedby="validationServer04Feedback"
+        formControlName="productIsInSale"
+        name="productIsInSale"
+      />
+      <label class="form-check-label" for="validationServer04"
+        >Is In Sale?</label
+      >
+    </div>
+  </div>
+
+  <div class="col-12 mt-4">
+    <button
+      [disabled]="!productForm?.valid"
+      class="btn btn-primary"
+      type="submit"
+    >
+      Add Product
+    </button>
+  </div>
+</form>

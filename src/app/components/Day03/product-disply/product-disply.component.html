@@ -1,0 +1,32 @@
+<table
+  *ngIf="ProductsFromParent.length > 0"
+  class="table table-dark table-hover"
+>
+  <thead>
+    <tr>
+      <th scope="col">Product Name</th>
+      <th scope="col">Product Category</th>
+      <th scope="col">Product Price</th>
+      <th scope="col">Product Quantity</th>
+      <th scope="col">Product Discount</th>
+      <th scope="col">Product IsInSale</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of ProductsFromParent; let i = index">
+      <th scope="row">{{ product.productName }}</th>
+      <td>{{ product.productCategory }}</td>
+      <td>{{ product.productPrice }}</td>
+      <td>{{ product.productQuantity }}</td>
+      <td>{{ product.productDiscount }} %</td>
+      <td>
+        <input type="checkbox" [checked]="product.productIsInSale" disabled />
+      </td>
+      <!-- <td>
+        <button (click)="Remove(i)" type="button" class="btn btn-danger">
+          Delete
+        </button>
+      </td> -->
+    </tr>
+  </tbody>
+</table>
